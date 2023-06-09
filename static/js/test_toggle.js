@@ -14,7 +14,7 @@ const trivyIntegration = {
     methods: {
         body_data() {
             const {
-                description,
+                config,
                 is_default,
                 selected_integration: id,
                 save_intermediates_to,
@@ -26,7 +26,7 @@ const trivyIntegration = {
                 trivy_options,
             } = this
             return {
-                description,
+                config,
                 is_default,
                 id,
                 save_intermediates_to,
@@ -70,6 +70,7 @@ const trivyIntegration = {
 
         initialState: () => ({
             // toggle: false,
+            config: {},
             error: {},
             timeout: "1h",
             save_intermediates_to: '/data/intermediates/sast',
