@@ -183,9 +183,9 @@ const trivyIntegration = {
             this.load({id})
             this.delete()
         },
-        handleSetDefault(id) {
+        handleSetDefault(id, local=true) {
             this.load({id})
-            this.set_default()
+            this.set_default(local)
         },
         create() {
             this.is_fetching = true
@@ -248,12 +248,13 @@ const trivyIntegration = {
                 }
             })
         },
-        async set_default() {
-            console.log('we are here')
+        async set_default(local) {
             this.is_fetching = true
             try {
-                const resp = await fetch(this.api_url + this.id, {
+                const resp = await fetch(this.api_url + this.project_id + '/' + this.id, {
                     method: 'PATCH',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({local})
                 })
                 if (resp.ok) {
                     this.$emit('update', {...this.$data, section_name: this.section_name})
