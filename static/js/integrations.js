@@ -63,7 +63,7 @@ const trivyIntegration = {
                 </form>
                 </div>
 
-                <h9>Save intermediates to</h9>
+                <!--<h9>Save intermediates to</h9>
                 <p>
                     <h13>Optional</h13>
                 </p>
@@ -71,7 +71,7 @@ const trivyIntegration = {
                        placeholder=""
                        v-model="save_intermediates_to"
                        :class="{ 'is-invalid': error.save_intermediates_to }">
-                <div class="invalid-feedback">[[ error.save_intermediates_to ]]</div>
+                <div class="invalid-feedback">[[ error.save_intermediates_to ]]</div>-->
 
                 <h9>Additional options for Trivy</h9>
                 <p>
@@ -82,7 +82,7 @@ const trivyIntegration = {
                        v-model="timeout"
                        :class="{ 'is-invalid': error.scan_opts }">
                 <div class="invalid-feedback">[[ error.scan_opts ]]</div>
-        
+
                 <h9>Trivy Options</h9>
                 <p>
                     <h13>Optional</h13>
@@ -125,7 +125,7 @@ const trivyIntegration = {
                 is_default,
                 project_id,
 
-                save_intermediates_to,
+                // save_intermediates_to,
                 timeout,
                 skip_update,
                 show_without_fix,
@@ -141,7 +141,7 @@ const trivyIntegration = {
                 is_default,
                 project_id,
 
-                save_intermediates_to,
+                // save_intermediates_to,
                 timeout,
                 skip_update,
                 show_without_fix,
@@ -277,9 +277,9 @@ const trivyIntegration = {
             error: {},
             test_connection_status: 0,
             id: null,
-            
+
             timeout: "1h",
-            save_intermediates_to: '/data/intermediates/sast',
+            // save_intermediates_to: '/data/intermediates/sast',
             skip_update: true,
             show_without_fix: false,
             show_with_temp_id: false,
